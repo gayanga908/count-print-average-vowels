@@ -1,4 +1,4 @@
-package com.luxsoft.test.service;
+package com.luxoft.test.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -8,7 +8,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import com.google.common.collect.Sets;
-import com.luxsoft.test.model.VowelKey;
+import com.luxoft.test.model.VowelKey;
 
 public class DefaultVowelCountServiceTest {
 

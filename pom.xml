@@ -2,10 +2,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.luxsoft.test</groupId>
-	<artifactId>com.luxsoft.test</artifactId>
+	<groupId>com.luxoft.test</groupId>
+	<artifactId>com.luxoft.test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>LuxsoftTest</name>
+	<name>count-print-average-vowels</name>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>

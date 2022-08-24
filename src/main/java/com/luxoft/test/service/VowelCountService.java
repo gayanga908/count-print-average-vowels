@@ -1,9 +1,9 @@
-package com.luxsoft.test.service;
+package com.luxoft.test.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.luxsoft.test.model.VowelKey;
+import com.luxoft.test.model.VowelKey;
 
 public interface VowelCountService {
 	

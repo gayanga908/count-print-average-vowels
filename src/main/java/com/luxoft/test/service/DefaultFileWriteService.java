@@ -1,4 +1,4 @@
-package com.luxsoft.test.service;
+package com.luxoft.test.service;
 
 import java.io.IOException;
 import java.nio.file.Files;

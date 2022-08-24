@@ -1,4 +1,4 @@
-package com.luxsoft.test.model;
+package com.luxoft.test.model;
 
 import java.util.Objects;
 import java.util.Set;

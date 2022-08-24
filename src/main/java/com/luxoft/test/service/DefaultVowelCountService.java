@@ -1,4 +1,4 @@
-package com.luxsoft.test.service;
+package com.luxoft.test.service;
 
 import static java.util.stream.Collectors.averagingDouble;
 import static java.util.stream.Collectors.groupingBy;
@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import com.google.common.collect.Sets;
-import com.luxsoft.test.model.FinalVowelCount;
-import com.luxsoft.test.model.VowelKey;
+import com.luxoft.test.model.FinalVowelCount;
+import com.luxoft.test.model.VowelKey;
 
 public class DefaultVowelCountService implements VowelCountService {
 

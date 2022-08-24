@@ -1,4 +1,4 @@
-package com.luxsoft.test;
+package com.luxoft.test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,9 +7,10 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import com.luxsoft.test.facade.VowelCountPrinter;
 
-public class LuxsoftTest {
+import com.luxoft.test.facade.VowelCountPrinter;
+
+public class LuxoftTest {
 
 	public static void main(String[] args) throws IOException {
 		
