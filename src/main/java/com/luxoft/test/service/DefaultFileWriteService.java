@@ -8,8 +8,8 @@ import java.util.List;
 public class DefaultFileWriteService implements FileWriteService {
 
 	@Override
-	public void printFile(List<String> data) throws IOException {
-		Files.write(Paths.get("OUTPUT.TXT"), data);
+	public void printFile(List<String> data, String outputFileName) throws IOException {
+		Files.write(Paths.get(outputFileName), data);
 	}
 
 }

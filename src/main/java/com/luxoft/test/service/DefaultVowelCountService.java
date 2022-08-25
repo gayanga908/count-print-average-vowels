@@ -26,9 +26,14 @@ public class DefaultVowelCountService implements VowelCountService {
 			words.addAll(Arrays.asList(removeSpecialCharactors.split(" ")));
 		});
 
+		words.removeIf(String::isEmpty);
 		return words.stream().map(word -> {
-			List<String> vowelsInWord = word.chars().map(Character::toLowerCase).mapToObj(c -> String.valueOf((char) c))
-					.filter(VOWELS::contains).map(String::valueOf).collect(Collectors.toList());
+			List<String> vowelsInWord = word.chars()
+					.map(Character::toLowerCase)
+					.mapToObj(c -> String.valueOf((char) c))
+					.filter(VOWELS::contains)
+					.map(String::valueOf)
+					.collect(Collectors.toList());
 			return new FinalVowelCount(new VowelKey(Sets.newHashSet(vowelsInWord), word.length()), vowelsInWord.size());
 		}).collect(groupingBy(FinalVowelCount::getVowelKey, averagingDouble(FinalVowelCount::getAverageVowels)));
 

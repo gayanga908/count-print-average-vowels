@@ -1,34 +1,27 @@
 package com.luxoft.test;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.luxoft.test.facade.VowelCountPrinter;
+import com.luxoft.test.service.DataFormatService;
+import com.luxoft.test.service.DefaultDataFormatService;
+import com.luxoft.test.service.DefaultFileReadService;
+import com.luxoft.test.service.DefaultFileWriteService;
+import com.luxoft.test.service.DefaultVowelCountService;
+import com.luxoft.test.service.FileReadService;
+import com.luxoft.test.service.FileWriteService;
+import com.luxoft.test.service.VowelCountService;
 
 public class LuxoftTest {
 
 	public static void main(String[] args) throws IOException {
-		
-		List<String> data = new ArrayList<>();
-		
-		ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-		InputStream inputStream = classloader.getResourceAsStream("INPUT.txt");
-		InputStreamReader streamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-		BufferedReader reader = new BufferedReader(streamReader);
-		for (String line; (line = reader.readLine()) != null;) {
-			data.add(line);
-		}
-		
-		new VowelCountPrinter().countAndPrint(data);
-		
-		
+		FileReadService fileReadService = new DefaultFileReadService();
+		VowelCountService vowelCountService = new DefaultVowelCountService();
+		DataFormatService dataFormatService = new DefaultDataFormatService();
+		FileWriteService fileWriteService = new DefaultFileWriteService();
+
+		new VowelCountPrinter(fileReadService, vowelCountService, dataFormatService, fileWriteService)
+				.countAndPrint("INPUT.TXT", "OUTPUT.TXT");
 
 	}
-
 
 }

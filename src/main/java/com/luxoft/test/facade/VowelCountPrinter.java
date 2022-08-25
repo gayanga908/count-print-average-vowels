@@ -6,24 +6,35 @@ import java.util.Map;
 
 import com.luxoft.test.model.VowelKey;
 import com.luxoft.test.service.DataFormatService;
-import com.luxoft.test.service.DefaultDataFormatService;
-import com.luxoft.test.service.DefaultFileWriteService;
-import com.luxoft.test.service.DefaultVowelCountService;
+import com.luxoft.test.service.FileReadService;
 import com.luxoft.test.service.FileWriteService;
 import com.luxoft.test.service.VowelCountService;
 
 public class VowelCountPrinter {
 	
-	public void countAndPrint(List<String> inputs) {
-		VowelCountService countService = new DefaultVowelCountService();
-		Map<VowelKey, Double> countedData = countService.count(inputs);
+	private FileReadService fileReadService;
+	private VowelCountService vowelCountService;
+	private DataFormatService dataFormatService;
+	private FileWriteService fileWriteService;
+	
+	public VowelCountPrinter(FileReadService fileReadService, VowelCountService vowelCountService,
+			DataFormatService dataFormatService, FileWriteService fileWriteService) {
+		this.fileReadService = fileReadService;
+		this.vowelCountService = vowelCountService;
+		this.dataFormatService = dataFormatService;
+		this.fileWriteService = fileWriteService;
+	}
+
+	public void countAndPrint(String inputFileName, String outputFileName) {
 		
-		DataFormatService dataFormatService = new DefaultDataFormatService();
+		List<String> inputs = fileReadService.readFile(inputFileName);
+		
+		Map<VowelKey, Double> countedData = vowelCountService.count(inputs);
+		
 		List<String> formatedList = dataFormatService.format(countedData);
 		
-		FileWriteService fileWriteService = new DefaultFileWriteService();
 		try {
-			fileWriteService.printFile(formatedList);
+			fileWriteService.printFile(formatedList, outputFileName);
 		} catch (IOException exception) {
 			throw new RuntimeException("Error occured when printing the file", exception);
 		}
